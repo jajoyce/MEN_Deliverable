@@ -38,9 +38,6 @@
                                     <h5 class="has-text-light">Demonym: &nbsp;<%= state.demonym %></h5>
                                     <h5 class="has-text-light">Capital: &nbsp;<%= state.capital %></h5>
                                     <h5 class="has-text-light">Largest City: &nbsp;<%= state.largestCity %></h5>
-                                    <div class="control form-buttons">
-                                        <a class="button is-primary has-background-primary-dark" href="/states/<%= state._id %>/edit">Update State Info</a>
-                                    </div>
                                     <form action="/states/<%= state._id %>?_method=DELETE" method="POST">
                                         <div class="field is-grouped">
                                             <div class="control">
