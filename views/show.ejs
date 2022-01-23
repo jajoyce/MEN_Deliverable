@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/static/styles/main.css">
+    <title>State Info - MEN Stack CRUD Deliverable</title>
+</head>
+<body class="has-navbar-fixed-top has-background-black-ter">
+    <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/states"> &nbsp; U.S. States &nbsp; </a>
+            <a class="navbar-item" href="/states/new"> &nbsp; Add New State &nbsp; </a>
+        </div>
+    </nav>
+    <section class="hero has-background-info-dark has-text-centered">
+        <div class="hero-body">
+            <p class="title has-text-light"><%= state.name %> State Info</p>
+        </div>
+    </section>
+    <main class="container extra-padding-bottom">
+        <div class="columns is-multiline is-centered">
+            <div class="column is-three-quarters">
+                <article class="card has-background-grey-dark">
+                    <div class="level">
+                        <div class="level-left">
+                            <div class="card-image">
+                                <figure class="image img-card-figure media-left">
+                                    <img src="<%= state.flagImg %>" class="flag-show-img" alt="Flag of <%= state.name %>">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h2 class="has-text-light"><%= state.name %></h2>
+                                    <h5 class="has-text-light">Population: &nbsp;<%= state.population %></h5>
+                                    <h5 class="has-text-light">Demonym: &nbsp;<%= state.demonym %></h5>
+                                    <h5 class="has-text-light">Capital: &nbsp;<%= state.capital %></h5>
+                                    <h5 class="has-text-light">Largest City: &nbsp;<%= state.largestCity %></h5>
+                                    <div class="control form-buttons">
+                                        <a class="button is-primary has-background-primary-dark" href="/states/<%= state._id %>/edit">Update State Info</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <br>
+                <div class="field is-grouped is-grouped-centered">
+                    <div class="control form-buttons">
+                        <a class="button is-info has-background-info-dark" href="/states">Back to All States</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

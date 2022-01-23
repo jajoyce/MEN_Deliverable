@@ -43,8 +43,7 @@ State.deleteMany({}, (error, deletedStates) => {
 router.get('/', (req, res) => {
     State.find({}, (error, foundStates) => {
         if (error) return console.log(error);
-        const states = { states: foundStates }
-        res.render('index.ejs', states);
+        res.render('index.ejs', { states: foundStates });
     });
 });
 
@@ -59,6 +58,16 @@ router.post('/', (req, res) => {
 
 router.get('/new', (req, res) => {
     res.render('new.ejs');
+});
+
+router.get('/:stateID', (req, res) => {
+    State.findById(req.params.stateID, (error, foundState) => {
+        if (error) {
+            console.log(error);
+            return res.redirect('/states');
+        };
+        res.render('show.ejs', { state: foundState});
+    });
 });
 
 
