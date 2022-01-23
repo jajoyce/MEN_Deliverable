@@ -1,0 +1,19 @@
+{
+  "name": "men_deliverable",
+  "version": "1.0.0",
+  "description": "# Part One. Create and Read.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.generalassemb.ly/jajoyce/MEN_Deliverable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
