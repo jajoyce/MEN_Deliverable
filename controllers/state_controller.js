@@ -53,8 +53,8 @@ router.post('/', (req, res) => {
     State.create(req.body, (error, newState) => {
         if (error) return console.log(error);
         console.log(newState);
+        res.redirect('/states');
     });
-    res.json(req.body);
 });
 
 router.get('/new', (req, res) => {
