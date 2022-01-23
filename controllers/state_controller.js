@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { State } = require('../models');
 
-State.deleteMany({}, (error, deletedState) => {
-    if (error) console.log(error);
+State.deleteMany({}, (error, deletedStates) => {
+    if (error) return console.log(error);
+    console.log(deletedStates);
     State.insertMany(
         [
             {
@@ -30,8 +31,13 @@ State.deleteMany({}, (error, deletedState) => {
                 largestCity: 'Houston', 
                 flagImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Flag_of_Texas.svg/250px-Flag_of_Texas.svg.png',
             },
-        ]
-    )
+        ], 
+        (error, insertedStates) => {
+            if (error) return console.log(error);
+            console.log('SEED COMPLETE:');
+            console.log(insertedStates);
+        }
+    );
 });
 
 router.get('/', (req, res) => {
@@ -40,6 +46,10 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     console.log('Create route accessed');
+    State.create(req.body, (error, newState) => {
+        if (error) return console.log(error);
+        console.log(newState);
+    });
     res.json(req.body);
 });
 
