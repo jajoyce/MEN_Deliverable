@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/static/styles/main.css">
+    <title>Add State - MEN Stack CRUD Deliverable</title>
+</head>
+<body class="has-navbar-fixed-top has-background-black-ter">
+    <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/states"> &nbsp; U.S. States &nbsp; </a>
+            <a class="navbar-item" href="/new"> &nbsp; Add New State &nbsp; </a>
+        </div>
+    </nav>
+    <section class="hero has-background-info-dark has-text-centered">
+        <div class="hero-body">
+            <p class="title has-text-light">Add New State</p>
+        </div>
+    </section>
+    <main class="container">
+        <div class="columns is-multiline is-centered">
+            <div class="column is-two-thirds">
+                <article class="card form-card has-background-grey-dark">
+                    <form action="/states" method="POST">
+                        <div class="field">
+                            <label class="label has-text-light">State Name</label>
+                            <div class="control">
+                                <input class="input" type="text" name="name" placeholder="California">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label has-text-light">Population</label>
+                            <div class="control">
+                                <input class="input" type="text" name="population" placeholder="39.5 million">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label has-text-light">Demonym</label>
+                            <div class="control">
+                                <input class="input" type="text" name="demonym" placeholder="Californian">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label has-text-light">Capital</label>
+                            <div class="control">
+                                <input class="input" type="text" name="capital" placeholder="Sacramento">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label has-text-light">Largest City</label>
+                            <div class="control">
+                                <input class="input" type="text" name="largestCity" placeholder="Los Angeles">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label has-text-light">Flag Image</label>
+                            <div class="control">
+                                <input class="input" type="text" name="flagImg" placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_California.svg/250px-Flag_of_California.svg.png">
+                            </div>
+                        </div>
+                        <div class="field form-buttons is-grouped is-grouped-centered">
+                            <div class="control">
+                                <button type="submit" class="button is-info">Add New State</button>
+                            </div>
+                            <div class="control">
+                                <button type="reset" class="button is-warning">Reset Form</button>
+                            </div>
+                            <div class="control">
+                                <a class="button is-light" href="/states">Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </article>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
