@@ -7,6 +7,7 @@ app.set('view engine', 'ejs');
 
 app.use('/static', express.static('public'));
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 
 app.get('/states', (req, res) => {
@@ -15,7 +16,7 @@ app.get('/states', (req, res) => {
 
 app.post('/states', (req, res) => {
     console.log('Create route accessed');
-    res.send(`Created state: ${req.body.name}`);
+    res.json(req.body);
 });
 
 app.get('/states/new', (req, res) => {
