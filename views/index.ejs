@@ -30,19 +30,19 @@
                             <div class="level-left">
                                 <div class="card-image">
                                     <figure class="image img-card-figure media-left">
-                                        <a href="/states/<%= i %>">
+                                        <a href="/states/<%= state._id %>">
                                             <img src="<%= state.flagImg %>" class="flag-list-img" alt="Flag of <%= state.name %>">
                                         </a>
                                     </figure>
                                     <div class="field is-grouped is-grouped-centered">
                                         <div class="control">
-                                            <a class="button is-info" href="/states/<%= i %>">Show Info Page</a>
+                                            <a class="button is-info has-background-info-dark" href="/states/<%= state._id %>">Show State Info</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-content">
                                     <div class="content">
-                                        <h2><a href="/states/<%= i %>" class="has-text-link-light"><%= state.name %></a></h2>
+                                        <h2><a href="/states/<%= state._id %>" class="has-text-link-light"><%= state.name %></a></h2>
                                         <h5 class="has-text-light">Population: &nbsp;<%= state.population %></h5>
                                         <h5 class="has-text-light">Demonym: &nbsp;<%= state.demonym %></h5>
                                         <h5 class="has-text-light">Capital: &nbsp;<%= state.capital %></h5>
@@ -57,7 +57,7 @@
             <div class="column is-three-quarters">
                 <div class="field is-grouped is-grouped-centered">
                     <div class="control form-buttons">
-                        <a class="button is-info" href="/states/new">Add New State</a>
+                        <a class="button is-primary has-background-primary-dark" href="/states/new">Add New State</a>
                     </div>
                 </div>
             </div>
