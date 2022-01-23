@@ -70,5 +70,11 @@ router.get('/:stateID', (req, res) => {
     });
 });
 
+router.delete('/:stateID', (req, res) => {
+    console.log('DELETE ROUTE ACCESSED');
+    console.log(`ID to delete: ${req.params.stateID}`);
+    res.json(req.body);
+});
+
 
 module.exports = router;
