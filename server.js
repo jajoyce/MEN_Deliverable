@@ -1,27 +1,16 @@
 const express = require('express');
 const app = express();
+const controllers = require('./controllers');
 
 const PORT = 4000;
 
 app.set('view engine', 'ejs');
 
-app.use('/static', express.static('public'));
-app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use('/static', express.static('public'));
 
-
-app.get('/states', (req, res) => {
-    res.send('Yes, this is working.');
-});
-
-app.post('/states', (req, res) => {
-    console.log('Create route accessed');
-    res.json(req.body);
-});
-
-app.get('/states/new', (req, res) => {
-    res.render('new.ejs');
-});
+app.use('/states', controllers.state);
 
 app.get('/*', (req, res) => {
     res.redirect('/states');
