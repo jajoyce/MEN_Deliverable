@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/static/styles/main.css">
+    <title>U.S. States - MEN Stack CRUD Deliverable</title>
+</head>
+<body class="has-navbar-fixed-top has-background-black-ter">
+    <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/states"> &nbsp; U.S. States &nbsp; </a>
+            <a class="navbar-item" href="/states/new"> &nbsp; Add New State &nbsp; </a>
+        </div>
+    </nav>
+    <section class="hero has-background-info-dark has-text-centered">
+        <div class="hero-body">
+            <p class="title has-text-light">U.S. States</p>
+        </div>
+    </section>
+    <main class="container">
+        <div class="columns is-multiline is-centered">
+            <% for (let i = 0; i < states.length; i++) { %>
+                <% let state = states[i]; %>
+                <div class="column is-three-quarters">
+                    <article class="card has-background-grey-dark">
+                        <div class="level">
+                            <div class="level-left">
+                                <div class="card-image">
+                                    <figure class="image img-card-figure media-left">
+                                        <a href="/states/<%= i %>">
+                                            <img src="<%= state.flagImg %>" class="flag-list-img" alt="Flag of <%= state.name %>">
+                                        </a>
+                                    </figure>
+                                    <div class="field is-grouped is-grouped-centered">
+                                        <div class="control">
+                                            <a class="button is-info" href="/states/<%= i %>">Show Info Page</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="content">
+                                        <h2><a href="/states/<%= i %>" class="has-text-link-light"><%= state.name %></a></h2>
+                                        <h5 class="has-text-light">Population: &nbsp;<%= state.population %></h5>
+                                        <h5 class="has-text-light">Demonym: &nbsp;<%= state.demonym %></h5>
+                                        <h5 class="has-text-light">Capital: &nbsp;<%= state.capital %></h5>
+                                        <h5 class="has-text-light">Largest City: &nbsp;<%= state.largestCity %></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            <% } %>
+            <div class="column is-three-quarters">
+                <div class="field is-grouped is-grouped-centered">
+                    <div class="control form-buttons">
+                        <a class="button is-info" href="/states/new">Add New State</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

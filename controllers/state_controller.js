@@ -41,7 +41,11 @@ State.deleteMany({}, (error, deletedStates) => {
 });
 
 router.get('/', (req, res) => {
-    res.send('Yes, this is working.');
+    State.find({}, (error, foundStates) => {
+        if (error) return console.log(error);
+        const states = { states: foundStates }
+        res.render('index.ejs', states);
+    });
 });
 
 router.post('/', (req, res) => {
