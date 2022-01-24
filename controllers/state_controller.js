@@ -77,8 +77,13 @@ router.get('/:stateID/edit', (req, res) => {
             return res.redirect('/states');
         };
         res.render('edit.ejs', { state: updatingState} );
-    })
-})
+    });
+});
+
+router.put('/:stateID', (req, res) => {
+    console.log(`UPDATE ROUTE ACCESSED for ${req.body.name}`);
+    res.json(req.body);
+});
 
 router.delete('/:stateID', (req, res) => {
     State.findByIdAndDelete(req.params.stateID, (error, deletedState) => {
