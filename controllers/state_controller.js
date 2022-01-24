@@ -70,6 +70,16 @@ router.get('/:stateID', (req, res) => {
     });
 });
 
+router.get('/:stateID/edit', (req, res) => {
+    State.findById(req.params.stateID, (error, updatingState) => {
+        if (error) {
+            console.log(error);
+            return res.redirect('/states');
+        };
+        res.render('edit.ejs', { state: updatingState} );
+    })
+})
+
 router.delete('/:stateID', (req, res) => {
     State.findByIdAndDelete(req.params.stateID, (error, deletedState) => {
         if (error) console.log(error);

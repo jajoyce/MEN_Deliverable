@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="/static/styles/main.css">
+    <title>Update State Info - MEN Stack CRUD Deliverable</title>
+</head>
+<body class="has-navbar-fixed-top has-background-black-ter">
+    <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/states"> &nbsp; U.S. States &nbsp; </a>
+            <a class="navbar-item" href="/states/new"> &nbsp; Add New State &nbsp; </a>
+        </div>
+    </nav>
+    <section class="hero has-background-info-dark has-text-centered">
+        <div class="hero-body">
+            <p class="title has-text-light">Update <%= state.name %> State Info</p>
+        </div>
+    </section>
+    <main class="container">
+        <div class="columns is-multiline is-centered">
+            <div class="column is-two-thirds">
+                <article class="card form-card has-background-grey-dark">
+                    <form>
+                        <div class="field">
+                            <label class="label has-text-light">State Name</label>
+                            <div class="control">
+                                <input class="input" type="text" name="name" placeholder="<%= state.name %>" value="<%= state.name %>">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label has-text-light">Population</label>
+                            <div class="control">
+                                <input class="input" type="text" name="population" placeholder="<%= state.population %>" value="<%= state.population %>">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label has-text-light">Demonym</label>
+                            <div class="control">
+                                <input class="input" type="text" name="demonym" placeholder="<%= state.demonym %>" value="<%= state.demonym %>">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label has-text-light">Capital</label>
+                            <div class="control">
+                                <input class="input" type="text" name="capital" placeholder="<%= state.capital %>" value="<%= state.capital %>">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label has-text-light">Largest City</label>
+                            <div class="control">
+                                <input class="input" type="text" name="largestCity" placeholder="<%= state.largestCity %>" value="<%= state.largestCity %>">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label has-text-light">Flag Image</label>
+                            <div class="control">
+                                <input class="input" type="text" name="flagImg" placeholder="<%= state.flagImg %>" value="<%= state.flagImg %>">
+                            </div>
+                        </div>
+                        <div class="field form-buttons is-grouped is-grouped-centered">
+                            <div class="control">
+                                <button class="button is-info" type="submit">Update State Info</button>
+                            </div>
+                        </div>
+                    </form>
+                </article>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
