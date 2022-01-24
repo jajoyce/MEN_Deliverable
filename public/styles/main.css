@@ -35,3 +35,7 @@ body {
 .extra-padding-bottom {
     padding-bottom: 240px;
 }
+
+.hero-body {
+    padding: 60px;
+}
