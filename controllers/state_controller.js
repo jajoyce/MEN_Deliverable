@@ -31,6 +31,62 @@ State.deleteMany({}, (error, deletedStates) => {
                 largestCity: 'Houston', 
                 flagImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Flag_of_Texas.svg/250px-Flag_of_Texas.svg.png',
             },
+            {
+                name: 'Florida', 
+                population: '21.5 million',
+                demonym: 'Floridian', 
+                capital: 'Tallahassee', 
+                largestCity: 'Jacksonville', 
+                flagImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Flag_of_Florida.svg/250px-Flag_of_Florida.svg.png',
+            },
+            {
+                name: 'New York', 
+                population: '20.2 million',
+                demonym: 'New Yorker', 
+                capital: 'Albany', 
+                largestCity: 'New York City', 
+                flagImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_New_York.svg/250px-Flag_of_New_York.svg.png',
+            },
+            {
+                name: 'Pennsylvania', 
+                population: '13 million',
+                demonym: 'Pennsylvanian', 
+                capital: 'Harrisburg', 
+                largestCity: 'Philadelphia', 
+                flagImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Flag_of_Pennsylvania.svg/250px-Flag_of_Pennsylvania.svg.png',
+            },
+            {
+                name: 'Illinois', 
+                population: '12.8 million',
+                demonym: 'Illinoisan', 
+                capital: 'Springfield', 
+                largestCity: 'Chicago', 
+                flagImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Illinois.svg/250px-Flag_of_Illinois.svg.png',
+            },
+            {
+                name: 'Alaska', 
+                population: '733,000',
+                demonym: 'Alaskan', 
+                capital: 'Juneau', 
+                largestCity: 'Anchorage', 
+                flagImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Alaska.svg/250px-Flag_of_Alaska.svg.png',
+            },
+            {
+                name: 'Vermont', 
+                population: '643,000',
+                demonym: 'Vermonter', 
+                capital: 'Montpelier', 
+                largestCity: 'Burlington', 
+                flagImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Vermont.svg/250px-Flag_of_Vermont.svg.png',
+            },
+            {
+                name: 'Wyoming', 
+                population: '577,000',
+                demonym: 'Wyomingite', 
+                capital: 'Cheyenne', 
+                largestCity: 'Cheyenne', 
+                flagImg: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Wyoming.svg/250px-Flag_of_Wyoming.svg.png',
+            },
         ], 
         (error, insertedStates) => {
             if (error) return console.log(error);
@@ -48,10 +104,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log('Create route accessed');
     State.create(req.body, (error, newState) => {
-        if (error) return console.log(error);
-        console.log(newState);
+        if (error) console.log(error);
+        console.log(`CREATED ${newState}`);
         res.redirect('/states');
     });
 });
@@ -83,7 +138,7 @@ router.get('/:stateID/edit', (req, res) => {
 router.put('/:stateID', (req, res) => {
     State.findByIdAndUpdate(req.params.stateID, req.body, (error, updatedState) => {
         if (error) console.log(error);
-        console.log(`Updated ${updatedState.name} to ${req.body.name}`);
+        console.log(`UPDATED ${updatedState.name} to ${req.body.name}`);
         res.redirect('/states');
     });
 });
@@ -91,7 +146,7 @@ router.put('/:stateID', (req, res) => {
 router.delete('/:stateID', (req, res) => {
     State.findByIdAndDelete(req.params.stateID, (error, deletedState) => {
         if (error) console.log(error);
-        console.log(deletedState);
+        console.log(`DELETED ${deletedState.name}`);
         res.redirect('/states');
     });
 });
