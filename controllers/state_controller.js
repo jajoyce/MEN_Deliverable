@@ -81,8 +81,11 @@ router.get('/:stateID/edit', (req, res) => {
 });
 
 router.put('/:stateID', (req, res) => {
-    console.log(`UPDATE ROUTE ACCESSED for ${req.body.name}`);
-    res.json(req.body);
+    State.findByIdAndUpdate(req.params.stateID, req.body, (error, updatedState) => {
+        if (error) console.log(error);
+        console.log(`Updated ${updatedState.name} to ${req.body.name}`);
+        res.redirect(`/states/${req.params.stateID}`);
+    });
 });
 
 router.delete('/:stateID', (req, res) => {
