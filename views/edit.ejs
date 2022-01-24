@@ -63,7 +63,17 @@
                         </div>
                         <div class="field form-buttons is-grouped is-grouped-centered">
                             <div class="control">
-                                <button class="button is-info" type="submit">Update State Info</button>
+                                <button class="button is-primary has-background-primary-dark" type="submit">Update State Info</button>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="/states/<%= state._id %>?_method=DELETE" method="POST">
+                        <div class="field is-grouped is-grouped-centered">
+                            <div class="control">
+                                <button type="submit" class="button is-danger has-background-danger-dark">Remove State</button>
+                            </div>
+                            <div class="control">
+                                <a class="button is-light" href="/states/<%= state._id %>">Cancel</a>
                             </div>
                         </div>
                     </form>
