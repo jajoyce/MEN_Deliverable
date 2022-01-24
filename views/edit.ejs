@@ -24,7 +24,7 @@
         <div class="columns is-multiline is-centered">
             <div class="column is-two-thirds">
                 <article class="card form-card has-background-grey-dark">
-                    <form>
+                    <form action="/states/<%= state._id %>?_method=PUT" method="POST">
                         <div class="field">
                             <label class="label has-text-light">State Name</label>
                             <div class="control">
