@@ -84,7 +84,7 @@ router.put('/:stateID', (req, res) => {
     State.findByIdAndUpdate(req.params.stateID, req.body, (error, updatedState) => {
         if (error) console.log(error);
         console.log(`Updated ${updatedState.name} to ${req.body.name}`);
-        res.redirect(`/states/${req.params.stateID}`);
+        res.redirect('/states');
     });
 });
 
